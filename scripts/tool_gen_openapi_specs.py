@@ -13,7 +13,8 @@ from list_resource_apis import list_resource_manager_apis
 from merge_openapi_jsons import merge_open_api_jsons
 
 
-gen_path = "./generated"
+project_root = os.path.abspath(os.path.dirname(__file__) + "/..")
+gen_path = f"{project_root}/generated/specs"
 
 
 if __name__ == "__main__":
