@@ -1,6 +1,10 @@
 """
 This script generates a single-merged OpenAPI specifications
  per Azure Resource by crawling through resource manager API specifications.
+
+To run this module, use the following command:
+  python3 ./scripts/tool_gen_openapi_specs.py --crawl <specification_root_folder>
+
 """
 
 import sys

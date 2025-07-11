@@ -1,6 +1,10 @@
 """
 This script generates a list of resource name parameters (in YAML format)
  from OpenAPI JSON files in the specified directory structure.
+
+To run this module, use the following command after generating local OpenAPI specs (if not already done):
+  python3 ./scripts/tool_gen_resource_name_param_list.py
+
 """
 
 import os
