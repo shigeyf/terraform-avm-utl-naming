@@ -1,0 +1,2520 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Microsoft.KubernetesRuntime",
+    "version": "2024-03-01"
+  },
+  "components": {},
+  "paths": {
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/bgpPeers": {
+      "get": {
+        "operationId": "BgpPeers_List",
+        "tags": [
+          "BgpPeers"
+        ],
+        "description": "List BgpPeer resources by parent",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/BgpPeerListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "BgpPeers_List": {
+            "$ref": "./examples/BgpPeers_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/bgpPeers/{bgpPeerName}": {
+      "get": {
+        "operationId": "BgpPeers_Get",
+        "tags": [
+          "BgpPeers"
+        ],
+        "description": "Get a BgpPeer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "bgpPeerName",
+            "in": "path",
+            "description": "The name of the BgpPeer",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/BgpPeer"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "BgpPeers_Get": {
+            "$ref": "./examples/BgpPeers_Get.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "BgpPeers_CreateOrUpdate",
+        "tags": [
+          "BgpPeers"
+        ],
+        "description": "Create a BgpPeer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "bgpPeerName",
+            "in": "path",
+            "description": "The name of the BgpPeer",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "Resource create parameters.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BgpPeer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource 'BgpPeer' update operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/BgpPeer"
+            }
+          },
+          "201": {
+            "description": "Resource 'BgpPeer' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/BgpPeer"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "BgpPeers_CreateOrUpdate": {
+            "$ref": "./examples/BgpPeers_CreateOrUpdate.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
+      },
+      "delete": {
+        "operationId": "BgpPeers_Delete",
+        "tags": [
+          "BgpPeers"
+        ],
+        "description": "Delete a BgpPeer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "bgpPeerName",
+            "in": "path",
+            "description": "The name of the BgpPeer",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "204": {
+            "description": "Resource does not exist."
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "BgpPeers_Delete": {
+            "$ref": "./examples/BgpPeers_Delete.json"
+          }
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/loadBalancers": {
+      "get": {
+        "operationId": "LoadBalancers_List",
+        "tags": [
+          "LoadBalancers"
+        ],
+        "description": "List LoadBalancer resources by parent",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancerListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancers_List": {
+            "$ref": "./examples/LoadBalancers_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/loadBalancers/{loadBalancerName}": {
+      "get": {
+        "operationId": "LoadBalancers_Get",
+        "tags": [
+          "LoadBalancers"
+        ],
+        "description": "Get a LoadBalancer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "description": "The name of the LoadBalancer",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancer"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancers_Get": {
+            "$ref": "./examples/LoadBalancers_Get.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "LoadBalancers_CreateOrUpdate",
+        "tags": [
+          "LoadBalancers"
+        ],
+        "description": "Create a LoadBalancer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "description": "The name of the LoadBalancer",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "Resource create parameters.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoadBalancer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource 'LoadBalancer' update operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancer"
+            }
+          },
+          "201": {
+            "description": "Resource 'LoadBalancer' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancer"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancers_CreateOrUpdate": {
+            "$ref": "./examples/LoadBalancers_CreateOrUpdate.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
+      },
+      "delete": {
+        "operationId": "LoadBalancers_Delete",
+        "tags": [
+          "LoadBalancers"
+        ],
+        "description": "Delete a LoadBalancer",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "description": "The name of the LoadBalancer",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "204": {
+            "description": "Resource does not exist."
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancers_Delete": {
+            "$ref": "./examples/LoadBalancers_Delete.json"
+          }
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/services": {
+      "get": {
+        "operationId": "Services_List",
+        "tags": [
+          "Services"
+        ],
+        "description": "List ServiceResource resources by parent",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/ServiceResourceListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Services_List": {
+            "$ref": "./examples/Services_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/services/{serviceName}": {
+      "get": {
+        "operationId": "Services_Get",
+        "tags": [
+          "Services"
+        ],
+        "description": "Get a ServiceResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "serviceName",
+            "in": "path",
+            "description": "The name of the the service",
+            "required": true,
+            "type": "string",
+            "pattern": "^(storageclass|networking)$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/ServiceResource"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Services_Get": {
+            "$ref": "./examples/Services_Get.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "Services_CreateOrUpdate",
+        "tags": [
+          "Services"
+        ],
+        "description": "Create a ServiceResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "serviceName",
+            "in": "path",
+            "description": "The name of the the service",
+            "required": true,
+            "type": "string",
+            "pattern": "^(storageclass|networking)$"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "Resource create parameters.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ServiceResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource 'ServiceResource' update operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/ServiceResource"
+            }
+          },
+          "201": {
+            "description": "Resource 'ServiceResource' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/ServiceResource"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Services_CreateOrUpdate": {
+            "$ref": "./examples/Services_CreateOrUpdate.json"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Services_Delete",
+        "tags": [
+          "Services"
+        ],
+        "description": "Delete a ServiceResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "serviceName",
+            "in": "path",
+            "description": "The name of the the service",
+            "required": true,
+            "type": "string",
+            "pattern": "^(storageclass|networking)$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "204": {
+            "description": "Resource does not exist."
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Services_Delete": {
+            "$ref": "./examples/Services_Delete.json"
+          }
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/storageClasses": {
+      "get": {
+        "operationId": "StorageClass_List",
+        "tags": [
+          "StorageClass"
+        ],
+        "description": "List StorageClassResource resources by parent",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/StorageClassResourceListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "StorageClass_List_0": {
+            "$ref": "./examples/StorageClass_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/{resourceUri}/providers/Microsoft.KubernetesRuntime/storageClasses/{storageClassName}": {
+      "get": {
+        "operationId": "StorageClass_Get",
+        "tags": [
+          "StorageClass"
+        ],
+        "description": "Get a StorageClassResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "storageClassName",
+            "in": "path",
+            "description": "The name of the the storage class",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/StorageClassResource"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "StorageClass_Get_0": {
+            "$ref": "./examples/StorageClass_Get.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "StorageClass_CreateOrUpdate",
+        "tags": [
+          "StorageClass"
+        ],
+        "description": "Create a StorageClassResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "storageClassName",
+            "in": "path",
+            "description": "The name of the the storage class",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "Resource create parameters.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StorageClassResource"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource 'StorageClassResource' update operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/StorageClassResource"
+            }
+          },
+          "201": {
+            "description": "Resource 'StorageClassResource' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/StorageClassResource"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "StorageClass_CreateOrUpdate_0": {
+            "$ref": "./examples/StorageClass_CreateOrUpdate.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
+      },
+      "patch": {
+        "operationId": "StorageClass_Update",
+        "tags": [
+          "StorageClass"
+        ],
+        "description": "Update a StorageClassResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "storageClassName",
+            "in": "path",
+            "description": "The name of the the storage class",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          },
+          {
+            "name": "properties",
+            "in": "body",
+            "description": "The resource properties to be updated.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StorageClassResourceUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/StorageClassResource"
+            }
+          },
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "StorageClass_Update_0": {
+            "$ref": "./examples/StorageClass_Update.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      },
+      "delete": {
+        "operationId": "StorageClass_Delete",
+        "tags": [
+          "StorageClass"
+        ],
+        "description": "Delete a StorageClassResource",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.ResourceManager.ResourceUriParameter"
+          },
+          {
+            "name": "storageClassName",
+            "in": "path",
+            "description": "The name of the the storage class",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-]{3,24}$"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "204": {
+            "description": "Resource does not exist."
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "StorageClass_Delete_0": {
+            "$ref": "./examples/StorageClass_Delete.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/providers/Microsoft.KubernetesRuntime/operations": {
+      "get": {
+        "operationId": "Operations_List",
+        "tags": [
+          "Operations"
+        ],
+        "description": "List the operations for the provider",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/OperationListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Operations_List_0": {
+            "$ref": "./examples/Operations_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "Azure.ResourceManager.ResourceUriParameter": {
+      "name": "resourceUri",
+      "in": "path",
+      "description": "The fully qualified Azure Resource manager identifier of the resource.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method",
+      "x-ms-skip-url-encoding": true
+    },
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "description": "The API version to use for this operation.",
+      "required": true,
+      "type": "string",
+      "minLength": 1
+    },
+    "If-Match": {
+      "name": "ifMatch",
+      "in": "header",
+      "description": "The If-Match header that makes a request conditional.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "If-None-Match": {
+      "name": "ifNoneMatch",
+      "in": "header",
+      "description": "The If-None-Match header that makes a request conditional.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "LocationParameter": {
+      "name": "location",
+      "in": "path",
+      "description": "The name of the Azure region.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "x-ms-parameter-location": "method"
+    },
+    "ManagementGroupNameParameter": {
+      "name": "managementGroupName",
+      "in": "path",
+      "description": "The name of the management group. The name is case insensitive.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 90,
+      "x-ms-parameter-location": "method"
+    },
+    "OperationIdParameter": {
+      "name": "operationId",
+      "in": "path",
+      "description": "The ID of an ongoing async operation.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupNameParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group. The name is case insensitive.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 90,
+      "x-ms-parameter-location": "method"
+    },
+    "ScopeParameter": {
+      "name": "scope",
+      "in": "path",
+      "description": "The scope at which the operation is performed.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "x-ms-parameter-location": "method",
+      "x-ms-skip-url-encoding": true
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "The ID of the target subscription. The value must be an UUID.",
+      "required": true,
+      "type": "string",
+      "format": "uuid"
+    },
+    "TenantIdParameter": {
+      "name": "tenantId",
+      "in": "path",
+      "description": "The Azure tenant ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)",
+      "required": true,
+      "type": "string",
+      "format": "uuid",
+      "x-ms-parameter-location": "method"
+    }
+  },
+  "definitions": {
+    "AccessMode": {
+      "type": "string",
+      "description": "Storage Class Access Mode",
+      "enum": [
+        "ReadWriteOnce",
+        "ReadWriteMany"
+      ],
+      "x-ms-enum": {
+        "name": "AccessMode",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "ReadWriteOnce",
+            "value": "ReadWriteOnce",
+            "description": "Read Write Once (RWO) access mode"
+          },
+          {
+            "name": "ReadWriteMany",
+            "value": "ReadWriteMany",
+            "description": "Read Write Many (RWX) access mode"
+          }
+        ]
+      }
+    },
+    "AdvertiseMode": {
+      "type": "string",
+      "description": "Enum of advertise mode",
+      "enum": [
+        "ARP",
+        "BGP",
+        "Both"
+      ],
+      "x-ms-enum": {
+        "name": "AdvertiseMode",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "ARP",
+            "value": "ARP",
+            "description": "ARP advertise mode"
+          },
+          {
+            "name": "BGP",
+            "value": "BGP",
+            "description": "BGP advertise mode"
+          },
+          {
+            "name": "Both",
+            "value": "Both",
+            "description": "both ARP and BGP advertise mode"
+          }
+        ]
+      }
+    },
+    "Azure.Core.uuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Universally Unique Identifier"
+    },
+    "BgpPeer": {
+      "type": "object",
+      "description": "A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/BgpPeerProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "BgpPeerListResult": {
+      "type": "object",
+      "description": "The response of a BgpPeer list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The BgpPeer items on this page",
+          "items": {
+            "$ref": "#/definitions/BgpPeer"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "BgpPeerProperties": {
+      "type": "object",
+      "description": "Details of the BgpPeer.",
+      "properties": {
+        "myAsn": {
+          "type": "integer",
+          "format": "int32",
+          "description": "My ASN"
+        },
+        "peerAsn": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Peer ASN"
+        },
+        "peerAddress": {
+          "type": "string",
+          "description": "Peer Address"
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState",
+          "description": "Resource provision state",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "myAsn",
+        "peerAsn",
+        "peerAddress"
+      ]
+    },
+    "BlobStorageClassTypeProperties": {
+      "type": "object",
+      "description": "The properties of Blob StorageClass",
+      "properties": {
+        "azureStorageAccountName": {
+          "type": "string",
+          "description": "Azure Storage Account Name"
+        },
+        "azureStorageAccountKey": {
+          "type": "string",
+          "format": "password",
+          "description": "Azure Storage Account Key",
+          "x-ms-secret": true
+        }
+      },
+      "required": [
+        "azureStorageAccountName",
+        "azureStorageAccountKey"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/StorageClassTypeProperties"
+        }
+      ],
+      "x-ms-discriminator-value": "Blob"
+    },
+    "DataResilienceTier": {
+      "type": "string",
+      "description": "Data resilience tier of a storage class",
+      "enum": [
+        "NotDataResilient",
+        "DataResilient"
+      ],
+      "x-ms-enum": {
+        "name": "DataResilienceTier",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "NotDataResilient",
+            "value": "NotDataResilient",
+            "description": "Not data resilient"
+          },
+          {
+            "name": "DataResilient",
+            "value": "DataResilient",
+            "description": "Data resilient"
+          }
+        ]
+      }
+    },
+    "FailoverTier": {
+      "type": "string",
+      "description": "Failover tier of a storage class",
+      "enum": [
+        "NotAvailable",
+        "Slow",
+        "Fast",
+        "Super"
+      ],
+      "x-ms-enum": {
+        "name": "FailoverTier",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "NotAvailable",
+            "value": "NotAvailable",
+            "description": "Not available Failover Tier"
+          },
+          {
+            "name": "Slow",
+            "value": "Slow",
+            "description": "Slow Failover Tier"
+          },
+          {
+            "name": "Fast",
+            "value": "Fast",
+            "description": "Fast Failover Tier"
+          },
+          {
+            "name": "Super",
+            "value": "Super",
+            "description": "Super Failover Tier"
+          }
+        ]
+      }
+    },
+    "LoadBalancer": {
+      "type": "object",
+      "description": "A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/LoadBalancerProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "LoadBalancerListResult": {
+      "type": "object",
+      "description": "The response of a LoadBalancer list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The LoadBalancer items on this page",
+          "items": {
+            "$ref": "#/definitions/LoadBalancer"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "LoadBalancerProperties": {
+      "type": "object",
+      "description": "Details of the LoadBalancer.",
+      "properties": {
+        "addresses": {
+          "type": "array",
+          "description": "IP Range",
+          "items": {
+            "type": "string"
+          }
+        },
+        "serviceSelector": {
+          "type": "object",
+          "description": "A dynamic label mapping to select related services. For instance, if you want to create a load balancer only for services with label \"a=b\", then please specify {\"a\": \"b\"} in the field.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "advertiseMode": {
+          "$ref": "#/definitions/AdvertiseMode",
+          "description": "Advertise Mode"
+        },
+        "bgpPeers": {
+          "type": "array",
+          "description": "The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState",
+          "description": "Resource provision state",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "addresses",
+        "advertiseMode"
+      ]
+    },
+    "NativeStorageClassTypeProperties": {
+      "type": "object",
+      "description": "The properties of Native StorageClass",
+      "allOf": [
+        {
+          "$ref": "#/definitions/StorageClassTypeProperties"
+        }
+      ],
+      "x-ms-discriminator-value": "Native"
+    },
+    "NfsDirectoryActionOnVolumeDeletion": {
+      "type": "string",
+      "description": "The action to take when a NFS volume is deleted",
+      "enum": [
+        "Delete",
+        "Retain"
+      ],
+      "x-ms-enum": {
+        "name": "NfsDirectoryActionOnVolumeDeletion",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Delete",
+            "value": "Delete",
+            "description": "When the volume is deleted, delete the directory"
+          },
+          {
+            "name": "Retain",
+            "value": "Retain",
+            "description": "When the volume is deleted, retain the directory"
+          }
+        ]
+      }
+    },
+    "NfsStorageClassTypeProperties": {
+      "type": "object",
+      "description": "The properties of NFS StorageClass",
+      "properties": {
+        "server": {
+          "type": "string",
+          "description": "NFS Server"
+        },
+        "share": {
+          "type": "string",
+          "description": "NFS share"
+        },
+        "subDir": {
+          "type": "string",
+          "description": "Sub directory under share. If the sub directory doesn't exist, driver will create it"
+        },
+        "mountPermissions": {
+          "type": "string",
+          "description": "Mounted folder permissions. Default is 0. If set as non-zero, driver will perform `chmod` after mount"
+        },
+        "onDelete": {
+          "$ref": "#/definitions/NfsDirectoryActionOnVolumeDeletion",
+          "description": "The action to take when a NFS volume is deleted. Default is Delete"
+        }
+      },
+      "required": [
+        "server",
+        "share"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/StorageClassTypeProperties"
+        }
+      ],
+      "x-ms-discriminator-value": "NFS"
+    },
+    "PerformanceTier": {
+      "type": "string",
+      "description": "Performance tier of a storage class",
+      "enum": [
+        "Undefined",
+        "Basic",
+        "Standard",
+        "Premium",
+        "Ultra"
+      ],
+      "x-ms-enum": {
+        "name": "PerformanceTier",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Undefined",
+            "value": "Undefined",
+            "description": "Undefined Performance Tier"
+          },
+          {
+            "name": "Basic",
+            "value": "Basic",
+            "description": "Basic Performance Tier"
+          },
+          {
+            "name": "Standard",
+            "value": "Standard",
+            "description": "Standard Performance Tier"
+          },
+          {
+            "name": "Premium",
+            "value": "Premium",
+            "description": "Premium Performance Tier"
+          },
+          {
+            "name": "Ultra",
+            "value": "Ultra",
+            "description": "Ultra Performance Tier"
+          }
+        ]
+      }
+    },
+    "ProvisioningState": {
+      "type": "string",
+      "description": "The status of the current operation.",
+      "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled",
+        "Provisioning",
+        "Updating",
+        "Deleting",
+        "Accepted"
+      ],
+      "x-ms-enum": {
+        "name": "ProvisioningState",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Resource has been created."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Resource creation failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
+          },
+          {
+            "name": "Provisioning",
+            "value": "Provisioning",
+            "description": "Initial provisioning in progress"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Update in progress"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deletion in progress"
+          },
+          {
+            "name": "Accepted",
+            "value": "Accepted",
+            "description": "Change accepted for processing"
+          }
+        ]
+      },
+      "readOnly": true
+    },
+    "RwxStorageClassTypeProperties": {
+      "type": "object",
+      "description": "The properties of RWX StorageClass",
+      "properties": {
+        "backingStorageClassName": {
+          "type": "string",
+          "description": "The backing storageclass used to create new storageclass"
+        }
+      },
+      "required": [
+        "backingStorageClassName"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/StorageClassTypeProperties"
+        }
+      ],
+      "x-ms-discriminator-value": "RWX"
+    },
+    "SCType": {
+      "type": "string",
+      "description": "Type of a storage class",
+      "enum": [
+        "Native",
+        "RWX",
+        "Blob",
+        "NFS",
+        "SMB"
+      ],
+      "x-ms-enum": {
+        "name": "SCType",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Native",
+            "value": "Native",
+            "description": "Native storage class"
+          },
+          {
+            "name": "RWX",
+            "value": "RWX",
+            "description": "RWX storage class"
+          },
+          {
+            "name": "Blob",
+            "value": "Blob",
+            "description": "Blob storage class"
+          },
+          {
+            "name": "NFS",
+            "value": "NFS",
+            "description": "NFS storage class"
+          },
+          {
+            "name": "SMB",
+            "value": "SMB",
+            "description": "SMB storage class"
+          }
+        ]
+      }
+    },
+    "ServiceProperties": {
+      "type": "object",
+      "description": "Properties for the service resource",
+      "properties": {
+        "rpObjectId": {
+          "$ref": "#/definitions/Azure.Core.uuid",
+          "description": "The object id of the service principal of the RP provisioned in the tenant",
+          "readOnly": true
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState",
+          "description": "Resource provision state",
+          "readOnly": true
+        }
+      }
+    },
+    "ServiceResource": {
+      "type": "object",
+      "description": "A Service resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ServiceProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "ServiceResourceListResult": {
+      "type": "object",
+      "description": "The response of a ServiceResource list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The ServiceResource items on this page",
+          "items": {
+            "$ref": "#/definitions/ServiceResource"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "SmbStorageClassTypeProperties": {
+      "type": "object",
+      "description": "The properties of SMB StorageClass",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "SMB Source"
+        },
+        "subDir": {
+          "type": "string",
+          "description": "Sub directory under share. If the sub directory doesn't exist, driver will create it"
+        },
+        "username": {
+          "type": "string",
+          "description": "Server username"
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "Server password",
+          "x-ms-secret": true
+        },
+        "domain": {
+          "type": "string",
+          "description": "Server domain"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/StorageClassTypeProperties"
+        }
+      ],
+      "x-ms-discriminator-value": "SMB"
+    },
+    "StorageClassProperties": {
+      "type": "object",
+      "description": "Details of the StorageClass StorageClass.",
+      "properties": {
+        "allowVolumeExpansion": {
+          "$ref": "#/definitions/VolumeExpansion",
+          "description": "Volume can be expanded or not"
+        },
+        "mountOptions": {
+          "type": "array",
+          "description": "Additional mount options",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provisioner": {
+          "type": "string",
+          "description": "Provisioner name",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        },
+        "volumeBindingMode": {
+          "$ref": "#/definitions/VolumeBindingMode",
+          "description": "Binding mode of volumes: Immediate, WaitForFirstConsumer",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        },
+        "accessModes": {
+          "type": "array",
+          "description": "The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]",
+          "items": {
+            "$ref": "#/definitions/AccessMode"
+          }
+        },
+        "dataResilience": {
+          "$ref": "#/definitions/DataResilienceTier",
+          "description": "Allow single data node failure"
+        },
+        "failoverSpeed": {
+          "$ref": "#/definitions/FailoverTier",
+          "description": "Failover speed: NA, Slow, Fast"
+        },
+        "limitations": {
+          "type": "array",
+          "description": "Limitations of the storage class",
+          "items": {
+            "type": "string"
+          }
+        },
+        "performance": {
+          "$ref": "#/definitions/PerformanceTier",
+          "description": "Performance tier"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Selection priority when multiple storage classes meet the criteria. 0: Highest, -1: Never use"
+        },
+        "typeProperties": {
+          "$ref": "#/definitions/StorageClassTypeProperties",
+          "description": "Properties of the StorageClass",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState",
+          "description": "Resource provision state",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "typeProperties"
+      ]
+    },
+    "StorageClassPropertiesUpdate": {
+      "type": "object",
+      "description": "The model for updating storageClass properties",
+      "properties": {
+        "allowVolumeExpansion": {
+          "$ref": "#/definitions/VolumeExpansion",
+          "description": "Volume can be expanded or not"
+        },
+        "mountOptions": {
+          "type": "array",
+          "description": "Additional mount options",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessModes": {
+          "type": "array",
+          "description": "The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]",
+          "items": {
+            "$ref": "#/definitions/AccessMode"
+          }
+        },
+        "dataResilience": {
+          "$ref": "#/definitions/DataResilienceTier",
+          "description": "Allow single data node failure"
+        },
+        "failoverSpeed": {
+          "$ref": "#/definitions/FailoverTier",
+          "description": "Failover speed: NA, Slow, Fast"
+        },
+        "limitations": {
+          "type": "array",
+          "description": "Limitations of the storage class",
+          "items": {
+            "type": "string"
+          }
+        },
+        "performance": {
+          "$ref": "#/definitions/PerformanceTier",
+          "description": "Performance tier"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Selection priority when multiple storage classes meet the criteria. 0: Highest, -1: Never use"
+        },
+        "typeProperties": {
+          "$ref": "#/definitions/StorageClassTypePropertiesUpdate",
+          "description": "New storage class type of storageClass"
+        }
+      }
+    },
+    "StorageClassResource": {
+      "type": "object",
+      "description": "A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/StorageClassProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "StorageClassResourceListResult": {
+      "type": "object",
+      "description": "The response of a StorageClassResource list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The StorageClassResource items on this page",
+          "items": {
+            "$ref": "#/definitions/StorageClassResource"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "StorageClassResourceUpdate": {
+      "type": "object",
+      "description": "The model for updating a storageClass",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/StorageClassPropertiesUpdate",
+          "description": "The properties of StorageClass"
+        }
+      }
+    },
+    "StorageClassTypeProperties": {
+      "type": "object",
+      "description": "The properties of storage class of the StorageClass",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/SCType",
+          "description": "Type of the storage class."
+        }
+      },
+      "discriminator": "type",
+      "required": [
+        "type"
+      ]
+    },
+    "StorageClassTypePropertiesUpdate": {
+      "type": "object",
+      "description": "The model for update a storageClass",
+      "properties": {
+        "backingStorageClassName": {
+          "type": "string",
+          "description": "The backing storageclass used to create new storageclass"
+        },
+        "azureStorageAccountName": {
+          "type": "string",
+          "description": "Azure Storage Account Name"
+        },
+        "azureStorageAccountKey": {
+          "type": "string",
+          "format": "password",
+          "description": "Azure Storage Account Key",
+          "x-ms-secret": true
+        },
+        "server": {
+          "type": "string",
+          "description": "NFS Server"
+        },
+        "share": {
+          "type": "string",
+          "description": "NFS share"
+        },
+        "subDir": {
+          "type": "string",
+          "description": "Sub directory under share. If the sub directory doesn't exist, driver will create it"
+        },
+        "mountPermissions": {
+          "type": "string",
+          "description": "Mounted folder permissions. Default is 0. If set as non-zero, driver will perform `chmod` after mount"
+        },
+        "onDelete": {
+          "$ref": "#/definitions/NfsDirectoryActionOnVolumeDeletion",
+          "description": "The action to take when a NFS volume is deleted. Default is Delete"
+        },
+        "source": {
+          "type": "string",
+          "description": "SMB Source"
+        },
+        "username": {
+          "type": "string",
+          "description": "Server username"
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "Server password",
+          "x-ms-secret": true
+        },
+        "domain": {
+          "type": "string",
+          "description": "Server domain"
+        }
+      }
+    },
+    "VolumeBindingMode": {
+      "type": "string",
+      "description": "Storage class volume binding mode",
+      "enum": [
+        "Immediate",
+        "WaitForFirstConsumer"
+      ],
+      "x-ms-enum": {
+        "name": "VolumeBindingMode",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Immediate",
+            "value": "Immediate",
+            "description": "Immediate binding mode"
+          },
+          {
+            "name": "WaitForFirstConsumer",
+            "value": "WaitForFirstConsumer",
+            "description": "Wait for first consumer binding mode"
+          }
+        ]
+      }
+    },
+    "VolumeExpansion": {
+      "type": "string",
+      "description": "Ability to expand volumes of a storage class",
+      "enum": [
+        "Allow",
+        "Disallow"
+      ],
+      "x-ms-enum": {
+        "name": "VolumeExpansion",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Allow",
+            "value": "Allow",
+            "description": "Allow volume expansion"
+          },
+          {
+            "name": "Disallow",
+            "value": "Disallow",
+            "description": "Disallow volume expansion"
+          }
+        ]
+      }
+    },
+    "AzureEntityResource": {
+      "type": "object",
+      "title": "Entity Resource",
+      "description": "The resource model definition for an Azure Resource Manager resource with an etag.",
+      "properties": {
+        "etag": {
+          "type": "string",
+          "description": "Resource Etag.",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "x-ms-client-name": "AzureEntityResource"
+    },
+    "CheckNameAvailabilityRequest": {
+      "type": "object",
+      "description": "The check availability request body.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the resource for which availability needs to be checked."
+        },
+        "type": {
+          "type": "string",
+          "description": "The resource type."
+        }
+      }
+    },
+    "CheckNameAvailabilityResponse": {
+      "type": "object",
+      "description": "The check availability result.",
+      "properties": {
+        "nameAvailable": {
+          "type": "boolean",
+          "description": "Indicates if the resource name is available."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason why the given name is not available.",
+          "enum": [
+            "Invalid",
+            "AlreadyExists"
+          ],
+          "x-ms-enum": {
+            "name": "CheckNameAvailabilityReason",
+            "modelAsString": true
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "Detailed reason why the given name is available."
+        }
+      }
+    },
+    "ErrorAdditionalInfo": {
+      "type": "object",
+      "description": "The resource management error additional info.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The additional info type.",
+          "readOnly": true
+        },
+        "info": {
+          "type": "object",
+          "description": "The additional info.",
+          "readOnly": true
+        }
+      }
+    },
+    "ErrorDetail": {
+      "type": "object",
+      "description": "The error detail.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The error code.",
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "description": "The error message.",
+          "readOnly": true
+        },
+        "target": {
+          "type": "string",
+          "description": "The error target.",
+          "readOnly": true
+        },
+        "details": {
+          "type": "array",
+          "description": "The error details.",
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          },
+          "readOnly": true,
+          "x-ms-identifiers": [
+            "message",
+            "target"
+          ]
+        },
+        "additionalInfo": {
+          "type": "array",
+          "description": "The error additional info.",
+          "items": {
+            "$ref": "#/definitions/ErrorAdditionalInfo"
+          },
+          "readOnly": true,
+          "x-ms-identifiers": []
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "title": "Error response",
+      "description": "Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDetail",
+          "description": "The error object."
+        }
+      }
+    },
+    "Identity": {
+      "type": "object",
+      "description": "Identity for the resource.",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The principal ID of resource identity. The value must be an UUID.",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The tenant ID of resource. The value must be an UUID.",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "description": "The identity type.",
+          "enum": [
+            "SystemAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "ResourceIdentityType",
+            "modelAsString": false
+          }
+        }
+      }
+    },
+    "KeyVaultProperties": {
+      "type": "object",
+      "properties": {
+        "keyIdentifier": {
+          "type": "string",
+          "description": "Key vault uri to access the encryption key."
+        },
+        "identity": {
+          "type": "string",
+          "description": "The client ID of the identity which will be used to access key vault."
+        }
+      }
+    },
+    "Operation": {
+      "type": "object",
+      "title": "REST API Operation",
+      "description": "Details of a REST API operation, returned from the Resource Provider Operations API",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the operation, as per Resource-Based Access Control (RBAC). Examples: \"Microsoft.Compute/virtualMachines/write\", \"Microsoft.Compute/virtualMachines/capture/action\"",
+          "readOnly": true
+        },
+        "isDataAction": {
+          "type": "boolean",
+          "description": "Whether the operation applies to data-plane. This is \"true\" for data-plane operations and \"false\" for ARM/control-plane operations.",
+          "readOnly": true
+        },
+        "display": {
+          "type": "object",
+          "description": "Localized display information for this particular operation.",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "The localized friendly form of the resource provider name, e.g. \"Microsoft Monitoring Insights\" or \"Microsoft Compute\".",
+              "readOnly": true
+            },
+            "resource": {
+              "type": "string",
+              "description": "The localized friendly name of the resource type related to this operation. E.g. \"Virtual Machines\" or \"Job Schedule Collections\".",
+              "readOnly": true
+            },
+            "operation": {
+              "type": "string",
+              "description": "The concise, localized friendly name for the operation; suitable for dropdowns. E.g. \"Create or Update Virtual Machine\", \"Restart Virtual Machine\".",
+              "readOnly": true
+            },
+            "description": {
+              "type": "string",
+              "description": "The short, localized friendly description of the operation; suitable for tool tips and detailed views.",
+              "readOnly": true
+            }
+          }
+        },
+        "origin": {
+          "type": "string",
+          "description": "The intended executor of the operation; as in Resource Based Access Control (RBAC) and audit logs UX. Default value is \"user,system\"",
+          "enum": [
+            "user",
+            "system",
+            "user,system"
+          ],
+          "x-ms-enum": {
+            "name": "Origin",
+            "modelAsString": true
+          },
+          "readOnly": true
+        },
+        "actionType": {
+          "type": "string",
+          "description": "Enum. Indicates the action type. \"Internal\" refers to actions that are for internal only APIs.",
+          "enum": [
+            "Internal"
+          ],
+          "x-ms-enum": {
+            "name": "ActionType",
+            "modelAsString": true
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "OperationListResult": {
+      "type": "object",
+      "description": "A list of REST API operations supported by an Azure Resource Provider. It contains an URL link to get the next set of results.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "List of operations supported by the resource provider",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "readOnly": true,
+          "x-ms-identifiers": [
+            "name"
+          ]
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to get the next set of operation list results (if there are any).",
+          "readOnly": true
+        }
+      }
+    },
+    "OperationStatusResult": {
+      "type": "object",
+      "description": "The current status of an async operation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Fully qualified ID for the async operation."
+        },
+        "resourceId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Fully qualified ID of the resource against which the original async operation was started.",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the async operation."
+        },
+        "status": {
+          "type": "string",
+          "description": "Operation status."
+        },
+        "percentComplete": {
+          "type": "number",
+          "description": "Percent of the operation that is complete.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The start time of the operation."
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The end time of the operation."
+        },
+        "operations": {
+          "type": "array",
+          "description": "The operations list.",
+          "items": {
+            "$ref": "#/definitions/OperationStatusResult"
+          }
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorDetail",
+          "description": "If present, details of the operation error."
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "Plan": {
+      "type": "object",
+      "description": "Plan for the resource.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. "
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "publisher",
+        "product"
+      ]
+    },
+    "ProxyResource": {
+      "type": "object",
+      "title": "Proxy Resource",
+      "description": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ]
+    },
+    "Resource": {
+      "type": "object",
+      "title": "Resource",
+      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Fully qualified resource ID for the resource. E.g. \"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}\"",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the resource",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+          "readOnly": true
+        },
+        "systemData": {
+          "$ref": "#/definitions/systemData",
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "readOnly": true
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "ResourceModelWithAllowedPropertySet": {
+      "type": "object",
+      "description": "The resource model definition containing the full set of allowed properties for a resource. Except properties bag, there cannot be a top level property outside of this set.",
+      "properties": {
+        "managedBy": {
+          "type": "string",
+          "description": "The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.",
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.",
+          "pattern": "^[-\\w\\._,\\(\\)]+$",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        },
+        "etag": {
+          "type": "string",
+          "description": "The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. ",
+          "readOnly": true
+        },
+        "identity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            }
+          ]
+        },
+        "sku": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            }
+          ]
+        },
+        "plan": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TrackedResource"
+        }
+      ],
+      "x-ms-azure-resource": true
+    },
+    "Sku": {
+      "type": "object",
+      "description": "The resource model definition representing SKU",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. E.g. P3. It is typically a letter+number code"
+        },
+        "tier": {
+          "$ref": "#/definitions/SkuTier"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "capacity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "SkuTier": {
+      "type": "string",
+      "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.",
+      "enum": [
+        "Free",
+        "Basic",
+        "Standard",
+        "Premium"
+      ],
+      "x-ms-enum": {
+        "name": "SkuTier",
+        "modelAsString": false
+      }
+    },
+    "TrackedResource": {
+      "type": "object",
+      "title": "Tracked Resource",
+      "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "description": "Resource tags.",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ]
+    },
+    "encryptionProperties": {
+      "type": "object",
+      "description": "Configuration of key for data encryption",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Indicates whether or not the encryption is enabled for container registry.",
+          "enum": [
+            "enabled",
+            "disabled"
+          ],
+          "x-ms-enum": {
+            "name": "EncryptionStatus",
+            "modelAsString": true
+          }
+        },
+        "keyVaultProperties": {
+          "$ref": "#/definitions/KeyVaultProperties",
+          "description": "Key vault properties."
+        }
+      }
+    },
+    "locationData": {
+      "type": "object",
+      "description": "Metadata pertaining to the geographic location of the resource.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A canonical name for the geographic or physical location.",
+          "maxLength": 256
+        },
+        "city": {
+          "type": "string",
+          "description": "The city or locality where the resource is located."
+        },
+        "district": {
+          "type": "string",
+          "description": "The district, state, or province where the resource is located."
+        },
+        "countryOrRegion": {
+          "type": "string",
+          "description": "The country or region where the resource is located"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "systemData": {
+      "type": "object",
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "properties": {
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "type": "string",
+          "description": "The type of identity that created the resource.",
+          "enum": [
+            "User",
+            "Application",
+            "ManagedIdentity",
+            "Key"
+          ],
+          "x-ms-enum": {
+            "name": "createdByType",
+            "modelAsString": true
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "type": "string",
+          "description": "The type of identity that last modified the resource.",
+          "enum": [
+            "User",
+            "Application",
+            "ManagedIdentity",
+            "Key"
+          ],
+          "x-ms-enum": {
+            "name": "createdByType",
+            "modelAsString": true
+          }
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}

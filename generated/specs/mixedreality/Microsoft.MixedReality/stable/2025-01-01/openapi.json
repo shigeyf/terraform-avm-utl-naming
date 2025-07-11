@@ -1,0 +1,949 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Microsoft.MixedReality",
+    "version": "2025-01-01"
+  },
+  "components": {},
+  "paths": {
+    "/providers/Microsoft.MixedReality/operations": {
+      "get": {
+        "operationId": "Operations_List",
+        "tags": [
+          "Proxy"
+        ],
+        "description": "Exposing Available Operations",
+        "x-ms-examples": {
+          "List available operations": {
+            "$ref": "./examples/proxy/ExposingAvailableOperations.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OperationPage"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MixedReality/locations/{location}/checkNameAvailability": {
+      "post": {
+        "operationId": "CheckNameAvailabilityLocal",
+        "tags": [
+          "Proxy"
+        ],
+        "description": "Check Name Availability for local uniqueness",
+        "x-ms-examples": {
+          "CheckLocalNameAvailability": {
+            "$ref": "./examples/proxy/CheckNameAvailabilityForLocalUniqueness.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/locationParameter"
+          },
+          {
+            "$ref": "#/parameters/checkNameAvailabilityParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityResponse"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.MixedReality/remoteRenderingAccounts": {
+      "get": {
+        "operationId": "RemoteRenderingAccounts_ListBySubscription",
+        "tags": [
+          "Resource",
+          "Proxy"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n List Remote Rendering Accounts by Subscription",
+        "x-ms-examples": {
+          "List remote rendering accounts by subscription": {
+            "$ref": "./examples/remote-rendering/GetBySubscription.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoteRenderingAccountPage"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MixedReality/remoteRenderingAccounts": {
+      "get": {
+        "operationId": "RemoteRenderingAccounts_ListByResourceGroup",
+        "tags": [
+          "Resource"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n List Resources by Resource Group",
+        "x-ms-examples": {
+          "List remote rendering accounts by resource group": {
+            "$ref": "./examples/remote-rendering/GetByResourceGroup.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoteRenderingAccountPage"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MixedReality/remoteRenderingAccounts/{accountName}": {
+      "delete": {
+        "operationId": "RemoteRenderingAccounts_Delete",
+        "tags": [
+          "Resource"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n Delete a Remote Rendering Account.",
+        "x-ms-examples": {
+          "Delete remote rendering account": {
+            "$ref": "./examples/remote-rendering/Delete.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "NoContent"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "RemoteRenderingAccounts_Get",
+        "tags": [
+          "Resource"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n Retrieve a Remote Rendering Account.",
+        "x-ms-examples": {
+          "Get remote rendering account": {
+            "$ref": "./examples/remote-rendering/Get.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoteRenderingAccount"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "RemoteRenderingAccounts_Update",
+        "tags": [
+          "Resource"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n Updating a Remote Rendering Account",
+        "x-ms-examples": {
+          "Update remote rendering account": {
+            "$ref": "./examples/remote-rendering/Patch.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountNameParameter"
+          },
+          {
+            "$ref": "#/parameters/remoteRenderingAccountParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoteRenderingAccount"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "RemoteRenderingAccounts_Create",
+        "tags": [
+          "Resource"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n Creating or Updating a Remote Rendering Account.",
+        "x-ms-examples": {
+          "Create remote rendering account": {
+            "$ref": "./examples/remote-rendering/Put.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountNameParameter"
+          },
+          {
+            "$ref": "#/parameters/remoteRenderingAccountParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RemoteRenderingAccount"
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/RemoteRenderingAccount"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MixedReality/remoteRenderingAccounts/{accountName}/listKeys": {
+      "post": {
+        "operationId": "RemoteRenderingAccounts_ListKeys",
+        "tags": [
+          "Key"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n List Both of the 2 Keys of a Remote Rendering Account",
+        "x-ms-examples": {
+          "List remote rendering account key": {
+            "$ref": "./examples/remote-rendering/ListKeys.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountNameParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./common.json#/definitions/AccountKeys"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MixedReality/remoteRenderingAccounts/{accountName}/regenerateKeys": {
+      "post": {
+        "operationId": "RemoteRenderingAccounts_RegenerateKeys",
+        "tags": [
+          "Key"
+        ],
+        "description": "\n\n> [!NOTE]\n>\n> **Mixed Reality retirement**\n>\n> The Mixed Reality service is now deprecated and will be retired. \n\n Regenerate specified Key of a Remote Rendering Account",
+        "x-ms-examples": {
+          "Regenerate remote rendering account keys": {
+            "$ref": "./examples/remote-rendering/RegenerateKey.json"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountNameParameter"
+          },
+          {
+            "$ref": "#/parameters/accountKeyRegenerateParameter"
+          },
+          {
+            "$ref": "#/parameters/apiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "./common.json#/definitions/AccountKeys"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "./common.json#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "checkNameAvailabilityParameter": {
+      "name": "checkNameAvailability",
+      "description": "Check Name Availability Request.",
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/CheckNameAvailabilityRequest"
+      },
+      "required": true,
+      "x-ms-parameter-location": "method"
+    },
+    "accountKeyRegenerateParameter": {
+      "name": "regenerate",
+      "in": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/AccountKeyRegenerateRequest"
+      },
+      "x-ms-parameter-location": "method",
+      "description": "Required information for key regeneration."
+    },
+    "accountNameParameter": {
+      "name": "accountName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "minLength": 1,
+      "maxLength": 90,
+      "x-ms-parameter-location": "method",
+      "description": "Name of an Mixed Reality Account."
+    },
+    "apiVersionParameter": {
+      "name": "api-version",
+      "description": "The API version to be used with the HTTP request.",
+      "in": "query",
+      "required": true,
+      "type": "string"
+    },
+    "locationParameter": {
+      "name": "location",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "minLength": 1,
+      "maxLength": 90,
+      "x-ms-parameter-location": "method",
+      "description": "The location in which uniqueness will be verified."
+    },
+    "resourceGroupNameParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "minLength": 1,
+      "maxLength": 90,
+      "x-ms-parameter-location": "method",
+      "description": "Name of an Azure resource group."
+    },
+    "subscriptionIdParameter": {
+      "name": "subscriptionId",
+      "description": "The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)",
+      "in": "path",
+      "required": true,
+      "type": "string"
+    },
+    "remoteRenderingAccountParameter": {
+      "name": "remoteRenderingAccount",
+      "description": "Remote Rendering Account parameter.",
+      "in": "body",
+      "schema": {
+        "$ref": "#/definitions/RemoteRenderingAccount"
+      },
+      "required": true,
+      "x-ms-parameter-location": "method"
+    }
+  },
+  "definitions": {
+    "CheckNameAvailabilityRequest": {
+      "description": "Check Name Availability Request",
+      "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "description": "Resource Name To Verify",
+          "type": "string"
+        },
+        "type": {
+          "description": "Fully qualified resource type which includes provider namespace",
+          "type": "string"
+        }
+      }
+    },
+    "CheckNameAvailabilityResponse": {
+      "description": "Check Name Availability Response",
+      "type": "object",
+      "required": [
+        "nameAvailable"
+      ],
+      "properties": {
+        "nameAvailable": {
+          "description": "if name Available",
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "Resource Name To Verify",
+          "$ref": "#/definitions/NameUnavailableReason"
+        },
+        "message": {
+          "description": "detail message",
+          "type": "string"
+        }
+      }
+    },
+    "Operation": {
+      "description": "REST API operation",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "type": "string"
+        },
+        "display": {
+          "description": "The object that represents the operation.",
+          "$ref": "#/definitions/OperationDisplay"
+        },
+        "isDataAction": {
+          "description": "Whether or not this is a data plane operation",
+          "type": "boolean"
+        },
+        "origin": {
+          "description": "The origin",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/OperationProperties",
+          "description": "Properties of the operation"
+        }
+      }
+    },
+    "OperationProperties": {
+      "description": "Operation properties.",
+      "type": "object",
+      "properties": {
+        "serviceSpecification": {
+          "$ref": "#/definitions/ServiceSpecification",
+          "description": "Service specification."
+        }
+      }
+    },
+    "ServiceSpecification": {
+      "description": "Service specification payload",
+      "type": "object",
+      "properties": {
+        "logSpecifications": {
+          "description": "Specifications of the Log for Azure Monitoring",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LogSpecification"
+          }
+        },
+        "metricSpecifications": {
+          "description": "Specifications of the Metrics for Azure Monitoring",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetricSpecification"
+          }
+        }
+      }
+    },
+    "LogSpecification": {
+      "description": "Specifications of the Log for Azure Monitoring",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the log",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Localized friendly display name of the log",
+          "type": "string"
+        },
+        "blobDuration": {
+          "description": "Blob duration of the log",
+          "type": "string"
+        }
+      }
+    },
+    "MetricSpecification": {
+      "description": "Specifications of the Metrics for Azure Monitoring",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the metric",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Localized friendly display name of the metric",
+          "type": "string"
+        },
+        "displayDescription": {
+          "description": "Localized friendly description of the metric",
+          "type": "string"
+        },
+        "unit": {
+          "description": "Unit that makes sense for the metric",
+          "type": "string"
+        },
+        "aggregationType": {
+          "description": "Only provide one value for this field. Valid values: Average, Minimum, Maximum, Total, Count.",
+          "type": "string"
+        },
+        "supportedAggregationTypes": {
+          "description": "Supported aggregation types. Valid values: Average, Minimum, Maximum, Total, Count.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationType"
+          }
+        },
+        "supportedTimeGrainTypes": {
+          "description": "Supported time grains. Valid values: PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, P1D",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TimeGrainType"
+          }
+        },
+        "enableRegionalMdmAccount": {
+          "description": "Flag to indicate use of regional Mdm accounts",
+          "type": "boolean"
+        },
+        "sourceMdmAccount": {
+          "description": "Source mdm account",
+          "type": "string"
+        },
+        "sourceMdmNamespace": {
+          "description": "Source mdm namespace",
+          "type": "string"
+        },
+        "metricFilterPattern": {
+          "description": "Metric filter regex pattern",
+          "type": "string"
+        },
+        "fillGapWithZero": {
+          "description": "Flag to determine is Zero is returned for time duration where no metric is emitted",
+          "type": "boolean"
+        },
+        "category": {
+          "description": "Metric category",
+          "type": "string"
+        },
+        "internalMetricName": {
+          "description": "Internal metric name.",
+          "type": "string"
+        },
+        "dimensions": {
+          "description": "Dimensions of the metric",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetricDimension"
+          }
+        },
+        "lockedAggregationType": {
+          "description": "Locked aggregation type of the metric",
+          "type": "string"
+        }
+      }
+    },
+    "AggregationType": {
+      "description": "Only provide one value for this field. Valid values: Average, Minimum, Maximum, Total, Count.",
+      "type": "string"
+    },
+    "TimeGrainType": {
+      "description": "The time grain of the metric",
+      "type": "string"
+    },
+    "MetricDimension": {
+      "description": "Specifications of the Dimension of metrics",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the dimension",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Localized friendly display name of the dimension",
+          "type": "string"
+        },
+        "internalName": {
+          "description": "Internal name of the dimension.",
+          "type": "string"
+        },
+        "toBeExportedForShoebox": {
+          "description": "Whether the dimension should be included for the shoebox export scenario.",
+          "type": "boolean"
+        }
+      }
+    },
+    "OperationDisplay": {
+      "description": "The object that represents the operation.",
+      "type": "object",
+      "required": [
+        "provider",
+        "resource",
+        "operation",
+        "description"
+      ],
+      "properties": {
+        "provider": {
+          "description": "Service provider: Microsoft.ResourceProvider",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Operation type: Read, write, delete, etc.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of operation",
+          "type": "string"
+        }
+      }
+    },
+    "NameUnavailableReason": {
+      "description": "reason of name unavailable.",
+      "type": "string",
+      "enum": [
+        "Invalid",
+        "AlreadyExists"
+      ],
+      "x-ms-enum": {
+        "name": "NameUnavailableReason",
+        "modelAsString": true
+      }
+    },
+    "OperationPage": {
+      "description": "Result of the request to list Resource Provider operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "description": "List of operations supported by the Resource Provider."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to get the next set of operation list results if there are any."
+        }
+      }
+    },
+    "AccountKeys": {
+      "description": "Developer Keys of account",
+      "type": "object",
+      "properties": {
+        "primaryKey": {
+          "x-ms-secret": true,
+          "description": "value of primary key.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "secondaryKey": {
+          "x-ms-secret": true,
+          "description": "value of secondary key.",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "AccountKeyRegenerateRequest": {
+      "description": "Request for account key regeneration",
+      "type": "object",
+      "properties": {
+        "serial": {
+          "type": "integer",
+          "enum": [
+            1,
+            2
+          ],
+          "default": 1,
+          "x-ms-enum": {
+            "name": "Serial",
+            "values": [
+              {
+                "value": 1,
+                "description": "The Primary Key",
+                "name": "Primary"
+              },
+              {
+                "value": 2,
+                "description": "The Secondary Key",
+                "name": "Secondary"
+              }
+            ]
+          },
+          "description": "serial of key to be regenerated"
+        }
+      }
+    },
+    "CloudError": {
+      "x-ms-external": true,
+      "properties": {
+        "error": {
+          "description": "An Error response.",
+          "$ref": "#/definitions/CloudErrorBody"
+        }
+      },
+      "description": "An Error response."
+    },
+    "CloudErrorBody": {
+      "x-ms-external": true,
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically."
+        },
+        "message": {
+          "type": "string",
+          "description": "A message describing the error, intended to be suitable for displaying in a user interface."
+        },
+        "target": {
+          "type": "string",
+          "description": "The target of the particular error. For example, the name of the property in error."
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CloudErrorBody"
+          },
+          "description": "A list of additional details about the error."
+        }
+      },
+      "description": "An error response from Azure."
+    },
+    "MixedRealityAccountProperties": {
+      "description": "Common Properties shared by Mixed Reality Accounts",
+      "type": "object",
+      "properties": {
+        "storageAccountName": {
+          "description": "The name of the storage account associated with this accountId",
+          "type": "string"
+        },
+        "accountId": {
+          "description": "unique id of certain account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "accountDomain": {
+          "description": "Correspond domain name of certain account",
+          "readOnly": true,
+          "type": "string"
+        }
+      }
+    },
+    "RemoteRenderingAccount": {
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/TrackedResource"
+        }
+      ],
+      "description": "RemoteRenderingAccount Response.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "description": "Property bag.",
+          "$ref": "./common.json#/definitions/MixedRealityAccountProperties"
+        },
+        "identity": {
+          "description": "The identity associated with this account",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/Identity"
+        },
+        "plan": {
+          "description": "The plan associated with this account",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/Identity"
+        },
+        "sku": {
+          "description": "The sku associated with this account",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/Sku"
+        },
+        "kind": {
+          "description": "The kind of account, if supported",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/Sku"
+        },
+        "systemData": {
+          "description": "System metadata for this account",
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/systemData"
+        }
+      }
+    },
+    "RemoteRenderingAccountPage": {
+      "description": "Result of the request to get resource collection. It contains a list of resources and a URL link to get the next set of results.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RemoteRenderingAccount"
+          },
+          "description": "List of resources supported by the Resource Provider."
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to get the next set of resource list results if there are any."
+        }
+      }
+    }
+  }
+}

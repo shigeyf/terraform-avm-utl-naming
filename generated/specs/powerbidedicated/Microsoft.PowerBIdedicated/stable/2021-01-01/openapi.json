@@ -1,0 +1,2280 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Microsoft.PowerBIdedicated",
+    "version": "2021-01-01"
+  },
+  "components": {},
+  "paths": {
+    "/providers/Microsoft.PowerBIDedicated/operations": {
+      "get": {
+        "operationId": "Operations_List",
+        "tags": [
+          "Operations"
+        ],
+        "description": "List the operations for the provider",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List operations": {
+            "$ref": "./examples/operations.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.PowerBIDedicated/autoScaleVCores": {
+      "get": {
+        "operationId": "AutoScaleVCores_ListBySubscription",
+        "tags": [
+          "AutoScaleVCores"
+        ],
+        "description": "Lists all the auto scale v-cores for the given subscription.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCoreListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List auto scale v-cores in subscription": {
+            "$ref": "./examples/listAutoScaleVCoresInSubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.PowerBIDedicated/capacities": {
+      "get": {
+        "operationId": "Capacities_List",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Lists all the Dedicated capacities for the given subscription.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacities"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get details of a capacity": {
+            "$ref": "./examples/listCapacitiesInSubscription.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.PowerBIDedicated/locations/{location}/checkNameAvailability": {
+      "post": {
+        "operationId": "Capacities_CheckNameAvailability",
+        "description": "Check the name availability in the target location.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/LocationParameter"
+          },
+          {
+            "name": "capacityParameters",
+            "in": "body",
+            "description": "The request body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckCapacityNameAvailabilityParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/CheckCapacityNameAvailabilityResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Check name availability of a capacity": {
+            "$ref": "./examples/checkNameAvailability.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.PowerBIDedicated/skus": {
+      "get": {
+        "operationId": "Capacities_ListSkus",
+        "description": "Lists eligible SKUs for PowerBI Dedicated resource provider.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/SkuEnumerationForNewResourceResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List eligible SKUs for a new capacity": {
+            "$ref": "./examples/listSKUsForNew.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores": {
+      "get": {
+        "operationId": "AutoScaleVCores_ListByResourceGroup",
+        "tags": [
+          "AutoScaleVCores"
+        ],
+        "description": "Gets all the auto scale v-cores for the given resource group.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCoreListResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List auto scale v-cores in resource group": {
+            "$ref": "./examples/listAutoScaleVCoresInResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores/{vcoreName}": {
+      "get": {
+        "operationId": "AutoScaleVCores_Get",
+        "tags": [
+          "AutoScaleVCores"
+        ],
+        "description": "Gets details about the specified auto scale v-core.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "vcoreName",
+            "in": "path",
+            "description": "The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[-a-zA-Z0-9_]+$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCore"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get details of an auto scale v-core": {
+            "$ref": "./examples/getAutoScaleVCore.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "AutoScaleVCores_Create",
+        "tags": [
+          "AutoScaleVCores"
+        ],
+        "description": "Provisions the specified auto scale v-core based on the configuration specified in the request.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "vcoreName",
+            "in": "path",
+            "description": "The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[-a-zA-Z0-9_]+$"
+          },
+          {
+            "name": "vCoreParameters",
+            "in": "body",
+            "description": "Contains the information used to provision the auto scale v-core.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCore"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource 'AutoScaleVCore' update operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCore"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create auto scale v-core": {
+            "$ref": "./examples/createAutoScaleVCore.json"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "AutoScaleVCores_Update",
+        "tags": [
+          "AutoScaleVCores"
+        ],
+        "description": "Updates the current state of the specified auto scale v-core.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "vcoreName",
+            "in": "path",
+            "description": "The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[-a-zA-Z0-9_]+$"
+          },
+          {
+            "name": "vCoreUpdateParameters",
+            "in": "body",
+            "description": "Request object that contains the updated information for the auto scale v-core.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCoreUpdateParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/AutoScaleVCore"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update auto scale v-core parameters": {
+            "$ref": "./examples/updateAutoScaleVCore.json"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "AutoScaleVCores_Delete",
+        "tags": [
+          "AutoScaleVCores"
+        ],
+        "description": "Deletes the specified auto scale v-core.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "vcoreName",
+            "in": "path",
+            "description": "The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[-a-zA-Z0-9_]+$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "204": {
+            "description": "Resource does not exist."
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete an auto scale v-core": {
+            "$ref": "./examples/deleteAutoScaleVCore.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities": {
+      "get": {
+        "operationId": "Capacities_ListByResourceGroup",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Gets all the Dedicated capacities for the given resource group.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacities"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List capacities in resource group": {
+            "$ref": "./examples/listCapacitiesInResourceGroup.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName}": {
+      "get": {
+        "operationId": "Capacities_GetDetails",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Gets details about the specified dedicated capacity.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get details of a capacity": {
+            "$ref": "./examples/getCapacity.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "Capacities_Create",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Provisions the specified Dedicated capacity based on the configuration specified in the request.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          },
+          {
+            "name": "capacityParameters",
+            "in": "body",
+            "description": "Contains the information used to provision the Dedicated capacity.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource 'DedicatedCapacity' update operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacity"
+            }
+          },
+          "201": {
+            "description": "Resource 'DedicatedCapacity' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacity"
+            },
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Create capacity": {
+            "$ref": "./examples/createCapacity.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      },
+      "patch": {
+        "operationId": "Capacities_Update",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Updates the current state of the specified Dedicated capacity.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          },
+          {
+            "name": "capacityUpdateParameters",
+            "in": "body",
+            "description": "Request object that contains the updated information for the capacity.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacityUpdateParameters"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacity"
+            }
+          },
+          "202": {
+            "description": "The request has been accepted for processing, but processing has not yet completed.",
+            "schema": {
+              "$ref": "#/definitions/DedicatedCapacity"
+            },
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Update capacity parameters": {
+            "$ref": "./examples/updateCapacity.json"
+          },
+          "Update capacity to Generation 2": {
+            "$ref": "./examples/updateToGen2.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      },
+      "delete": {
+        "operationId": "Capacities_Delete",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Deletes the specified Dedicated capacity.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "204": {
+            "description": "Resource does not exist."
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get details of a capacity": {
+            "$ref": "./examples/deleteCapacity.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName}/resume": {
+      "post": {
+        "operationId": "Capacities_Resume",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Resumes operation of the specified Dedicated capacity instance.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded."
+          },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get details of a capacity": {
+            "$ref": "./examples/resumeCapacity.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName}/skus": {
+      "get": {
+        "operationId": "Capacities_ListSkusForCapacity",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Lists eligible SKUs for a PowerBI Dedicated resource.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/SkuEnumerationForExistingResourceResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List eligible SKUs for an existing capacity": {
+            "$ref": "./examples/listSKUsForExisting.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName}/suspend": {
+      "post": {
+        "operationId": "Capacities_Suspend",
+        "tags": [
+          "Capacities"
+        ],
+        "description": "Suspends operation of the specified dedicated capacity instance.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "dedicatedCapacityName",
+            "in": "path",
+            "description": "The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.",
+            "required": true,
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 63,
+            "pattern": "^[a-z][a-z0-9]*$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded."
+          },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Suspend capacity": {
+            "$ref": "./examples/suspendCapacity.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      }
+    }
+  },
+  "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "description": "The API version to use for this operation.",
+      "required": true,
+      "type": "string",
+      "minLength": 1
+    },
+    "LocationParameter": {
+      "name": "location",
+      "in": "path",
+      "description": "The name of Azure region.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "x-ms-parameter-location": "method"
+    },
+    "OperationIdParameter": {
+      "name": "operationId",
+      "in": "path",
+      "description": "The ID of an ongoing async operation.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupNameParameter": {
+      "name": "resourceGroupName",
+      "in": "path",
+      "description": "The name of the resource group. The name is case insensitive.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 90,
+      "x-ms-parameter-location": "method"
+    },
+    "SubscriptionIdParameter": {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "The ID of the target subscription.",
+      "required": true,
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "definitions": {
+    "AutoScaleVCore": {
+      "type": "object",
+      "description": "Represents an instance of an auto scale v-core resource.",
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/AutoScaleVCoreSku",
+          "description": "The SKU of the auto scale v-core resource."
+        },
+        "properties": {
+          "$ref": "#/definitions/AutoScaleVCoreProperties",
+          "description": "Properties of an auto scale v-core resource.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "sku"
+      ],
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/TrackedResource"
+        }
+      ]
+    },
+    "AutoScaleVCoreListResult": {
+      "type": "object",
+      "description": "An array of auto scale v-core resources.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "An array of auto scale v-core resources.",
+          "items": {
+            "$ref": "#/definitions/AutoScaleVCore"
+          }
+        },
+        "nextLink": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "AutoScaleVCoreMutableProperties": {
+      "type": "object",
+      "description": "An object that represents a set of mutable auto scale v-core resource properties.",
+      "properties": {
+        "capacityLimit": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The maximum capacity of an auto scale v-core resource."
+        }
+      }
+    },
+    "AutoScaleVCoreProperties": {
+      "type": "object",
+      "description": "Properties of an auto scale v-core resource.",
+      "properties": {
+        "capacityObjectId": {
+          "type": "string",
+          "description": "The object ID of the capacity resource associated with the auto scale v-core resource."
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/VCoreProvisioningState",
+          "description": "The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AutoScaleVCoreMutableProperties"
+        }
+      ]
+    },
+    "AutoScaleVCoreSku": {
+      "type": "object",
+      "description": "Represents the SKU name and Azure pricing tier for auto scale v-core resource.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the SKU level."
+        },
+        "tier": {
+          "$ref": "#/definitions/VCoreSkuTier",
+          "description": "The name of the Azure pricing tier to which the SKU applies."
+        },
+        "capacity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The capacity of an auto scale v-core resource."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "AutoScaleVCoreUpdateParameters": {
+      "type": "object",
+      "description": "Update request specification",
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/AutoScaleVCoreSku",
+          "description": "The SKU of the auto scale v-core resource."
+        },
+        "tags": {
+          "type": "object",
+          "description": "Key-value pairs of additional provisioning properties.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/AutoScaleVCoreMutableProperties",
+          "description": "Properties of the update operation request.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "CapacityProvisioningState": {
+      "type": "string",
+      "description": "The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.",
+      "enum": [
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Paused",
+        "Suspended",
+        "Provisioning",
+        "Updating",
+        "Suspending",
+        "Pausing",
+        "Resuming",
+        "Preparing",
+        "Scaling"
+      ],
+      "x-ms-enum": {
+        "name": "CapacityProvisioningState",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Deleting",
+            "value": "Deleting"
+          },
+          {
+            "name": "Succeeded",
+            "value": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed"
+          },
+          {
+            "name": "Paused",
+            "value": "Paused"
+          },
+          {
+            "name": "Suspended",
+            "value": "Suspended"
+          },
+          {
+            "name": "Provisioning",
+            "value": "Provisioning"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating"
+          },
+          {
+            "name": "Suspending",
+            "value": "Suspending"
+          },
+          {
+            "name": "Pausing",
+            "value": "Pausing"
+          },
+          {
+            "name": "Resuming",
+            "value": "Resuming"
+          },
+          {
+            "name": "Preparing",
+            "value": "Preparing"
+          },
+          {
+            "name": "Scaling",
+            "value": "Scaling"
+          }
+        ]
+      }
+    },
+    "CapacitySku": {
+      "type": "object",
+      "description": "Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the SKU level."
+        },
+        "tier": {
+          "$ref": "#/definitions/CapacitySkuTier",
+          "description": "The name of the Azure pricing tier to which the SKU applies."
+        },
+        "capacity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The capacity of the SKU."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CapacitySkuTier": {
+      "type": "string",
+      "description": "The name of the Azure pricing tier to which the SKU applies.",
+      "enum": [
+        "PBIE_Azure",
+        "Premium",
+        "AutoPremiumHost"
+      ],
+      "x-ms-enum": {
+        "name": "CapacitySkuTier",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "PBIE_Azure",
+            "value": "PBIE_Azure"
+          },
+          {
+            "name": "Premium",
+            "value": "Premium"
+          },
+          {
+            "name": "AutoPremiumHost",
+            "value": "AutoPremiumHost"
+          }
+        ]
+      }
+    },
+    "CheckCapacityNameAvailabilityParameters": {
+      "type": "object",
+      "description": "Details of capacity name request body.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name for checking availability.",
+          "minLength": 3,
+          "maxLength": 63,
+          "pattern": "^[a-z][a-z0-9]*$"
+        },
+        "type": {
+          "type": "string",
+          "description": "The resource type of PowerBI dedicated.",
+          "default": "Microsoft.PowerBIDedicated/capacities"
+        }
+      }
+    },
+    "CheckCapacityNameAvailabilityResult": {
+      "type": "object",
+      "description": "The checking result of capacity name availability.",
+      "properties": {
+        "nameAvailable": {
+          "type": "boolean",
+          "description": "Indicator of availability of the capacity name."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason of unavailability."
+        },
+        "message": {
+          "type": "string",
+          "description": "The detailed message of the request unavailability."
+        }
+      }
+    },
+    "DedicatedCapacities": {
+      "type": "object",
+      "description": "An array of Dedicated capacities resources.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "An array of Dedicated capacities resources.",
+          "items": {
+            "$ref": "#/definitions/DedicatedCapacity"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DedicatedCapacity": {
+      "type": "object",
+      "description": "Represents an instance of a Dedicated Capacity resource.",
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/CapacitySku",
+          "description": "The SKU of the PowerBI Dedicated capacity resource."
+        },
+        "properties": {
+          "$ref": "#/definitions/DedicatedCapacityProperties",
+          "description": "Properties of the provision operation request.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "sku"
+      ],
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/TrackedResource"
+        }
+      ]
+    },
+    "DedicatedCapacityAdministrators": {
+      "type": "object",
+      "description": "An array of administrator user identities",
+      "properties": {
+        "members": {
+          "type": "array",
+          "description": "An array of administrator user identities.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DedicatedCapacityMutableProperties": {
+      "type": "object",
+      "description": "An object that represents a set of mutable Dedicated capacity resource properties.",
+      "properties": {
+        "administration": {
+          "$ref": "#/definitions/DedicatedCapacityAdministrators",
+          "description": "A collection of Dedicated capacity administrators"
+        },
+        "mode": {
+          "$ref": "#/definitions/Mode",
+          "description": "Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)"
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "Tenant ID for the capacity. Used for creating Pro Plus capacity.",
+          "readOnly": true
+        },
+        "friendlyName": {
+          "type": "string",
+          "description": "Capacity name",
+          "readOnly": true
+        }
+      }
+    },
+    "DedicatedCapacityProperties": {
+      "type": "object",
+      "description": "Properties of Dedicated Capacity resource.",
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/State",
+          "description": "The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.",
+          "readOnly": true
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/CapacityProvisioningState",
+          "description": "The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/DedicatedCapacityMutableProperties"
+        }
+      ]
+    },
+    "DedicatedCapacityUpdateParameters": {
+      "type": "object",
+      "description": "Provision request specification",
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/CapacitySku",
+          "description": "The SKU of the Dedicated capacity resource."
+        },
+        "tags": {
+          "type": "object",
+          "description": "Key-value pairs of additional provisioning properties.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/DedicatedCapacityMutableProperties",
+          "description": "Properties of the provision operation request.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "title": "Error response",
+      "description": "Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorDetail",
+          "description": "The error object."
+        }
+      }
+    },
+    "LogSpecification": {
+      "type": "object",
+      "description": "Log specification for exposing diagnostic logs to shoebox.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the log",
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Localizable name of the log"
+        },
+        "blobDuration": {
+          "type": "string",
+          "description": "Blob duration for the log",
+          "readOnly": true
+        }
+      }
+    },
+    "MetricSpecification": {
+      "type": "object",
+      "description": "Metric specification for exposing performance metrics to shoebox.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Metric name",
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Localizable metric name"
+        },
+        "displayDescription": {
+          "type": "string",
+          "description": "Localizable description of metric"
+        },
+        "unit": {
+          "type": "string",
+          "description": "Unit for the metric",
+          "readOnly": true
+        },
+        "aggregationType": {
+          "type": "string",
+          "description": "Aggregation type for the metric",
+          "readOnly": true
+        },
+        "metricFilterPattern": {
+          "type": "string",
+          "description": "Pattern used to filter the metric",
+          "readOnly": true
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "For describing multi dimensional metrics",
+          "items": {
+            "$ref": "#/definitions/MetricSpecificationDimensionsItem"
+          },
+          "x-ms-identifiers": [
+            "name"
+          ]
+        }
+      }
+    },
+    "MetricSpecificationDimensionsItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Dimension of the metric",
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Localizable dimension of the metric"
+        }
+      }
+    },
+    "Mode": {
+      "type": "string",
+      "description": "Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)",
+      "enum": [
+        "Gen1",
+        "Gen2"
+      ],
+      "x-ms-enum": {
+        "name": "Mode",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Gen1",
+            "value": "Gen1"
+          },
+          {
+            "name": "Gen2",
+            "value": "Gen2"
+          }
+        ]
+      }
+    },
+    "Operation": {
+      "type": "object",
+      "title": "REST API Operation",
+      "description": "Details of a REST API operation, returned from the Resource Provider Operations API",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the operation, as per Resource-Based Access Control (RBAC). Examples: \"Microsoft.Compute/virtualMachines/write\", \"Microsoft.Compute/virtualMachines/capture/action\"",
+          "readOnly": true
+        },
+        "isDataAction": {
+          "type": "boolean",
+          "description": "Whether the operation applies to data-plane. This is \"true\" for data-plane operations and \"false\" for ARM/control-plane operations.",
+          "readOnly": true
+        },
+        "display": {
+          "type": "object",
+          "description": "Localized display information for this particular operation.",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "description": "The localized friendly form of the resource provider name, e.g. \"Microsoft Monitoring Insights\" or \"Microsoft Compute\".",
+              "readOnly": true
+            },
+            "resource": {
+              "type": "string",
+              "description": "The localized friendly name of the resource type related to this operation. E.g. \"Virtual Machines\" or \"Job Schedule Collections\".",
+              "readOnly": true
+            },
+            "operation": {
+              "type": "string",
+              "description": "The concise, localized friendly name for the operation; suitable for dropdowns. E.g. \"Create or Update Virtual Machine\", \"Restart Virtual Machine\".",
+              "readOnly": true
+            },
+            "description": {
+              "type": "string",
+              "description": "The short, localized friendly description of the operation; suitable for tool tips and detailed views.",
+              "readOnly": true
+            }
+          }
+        },
+        "origin": {
+          "type": "string",
+          "description": "The intended executor of the operation; as in Resource Based Access Control (RBAC) and audit logs UX. Default value is \"user,system\"",
+          "enum": [
+            "user",
+            "system",
+            "user,system"
+          ],
+          "x-ms-enum": {
+            "name": "Origin",
+            "modelAsString": true
+          },
+          "readOnly": true
+        },
+        "actionType": {
+          "type": "string",
+          "description": "Enum. Indicates the action type. \"Internal\" refers to actions that are for internal only APIs.",
+          "enum": [
+            "Internal"
+          ],
+          "x-ms-enum": {
+            "name": "ActionType",
+            "modelAsString": true
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "OperationListResult": {
+      "type": "object",
+      "description": "A list of REST API operations supported by an Azure Resource Provider. It contains an URL link to get the next set of results.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "List of operations supported by the resource provider",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "readOnly": true,
+          "x-ms-identifiers": [
+            "name"
+          ]
+        },
+        "nextLink": {
+          "type": "string",
+          "description": "URL to get the next set of operation list results (if there are any).",
+          "readOnly": true
+        }
+      }
+    },
+    "ServiceSpecification": {
+      "type": "object",
+      "description": "Service specification for exposing performance metrics to shoebox.",
+      "properties": {
+        "metricSpecifications": {
+          "type": "array",
+          "description": "Metric specifications for exposing performance metrics to shoebox.",
+          "items": {
+            "$ref": "#/definitions/MetricSpecification"
+          },
+          "x-ms-identifiers": [
+            "name"
+          ]
+        },
+        "logSpecifications": {
+          "type": "array",
+          "description": "Log specifications for exposing diagnostic logs to shoebox.",
+          "items": {
+            "$ref": "#/definitions/LogSpecification"
+          },
+          "x-ms-identifiers": [
+            "name"
+          ]
+        }
+      }
+    },
+    "SkuDetailsForExistingResource": {
+      "type": "object",
+      "description": "An object that represents SKU details for existing resources",
+      "properties": {
+        "resourceType": {
+          "type": "string",
+          "description": "The resource type"
+        },
+        "sku": {
+          "$ref": "#/definitions/CapacitySku",
+          "description": "The SKU in SKU details for existing resources."
+        }
+      }
+    },
+    "SkuEnumerationForExistingResourceResult": {
+      "type": "object",
+      "description": "An object that represents enumerating SKUs for existing resources",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The collection of available SKUs for existing resources",
+          "items": {
+            "$ref": "#/definitions/SkuDetailsForExistingResource"
+          },
+          "x-ms-identifiers": [
+            "/sku/name"
+          ]
+        }
+      }
+    },
+    "SkuEnumerationForNewResourceResult": {
+      "type": "object",
+      "description": "An object that represents enumerating SKUs for new resources",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The collection of available SKUs for new resources",
+          "items": {
+            "$ref": "#/definitions/CapacitySku"
+          },
+          "x-ms-identifiers": [
+            "name"
+          ]
+        }
+      }
+    },
+    "State": {
+      "type": "string",
+      "description": "The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.",
+      "enum": [
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Paused",
+        "Suspended",
+        "Provisioning",
+        "Updating",
+        "Suspending",
+        "Pausing",
+        "Resuming",
+        "Preparing",
+        "Scaling"
+      ],
+      "x-ms-enum": {
+        "name": "State",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Deleting",
+            "value": "Deleting"
+          },
+          {
+            "name": "Succeeded",
+            "value": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed"
+          },
+          {
+            "name": "Paused",
+            "value": "Paused"
+          },
+          {
+            "name": "Suspended",
+            "value": "Suspended"
+          },
+          {
+            "name": "Provisioning",
+            "value": "Provisioning"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating"
+          },
+          {
+            "name": "Suspending",
+            "value": "Suspending"
+          },
+          {
+            "name": "Pausing",
+            "value": "Pausing"
+          },
+          {
+            "name": "Resuming",
+            "value": "Resuming"
+          },
+          {
+            "name": "Preparing",
+            "value": "Preparing"
+          },
+          {
+            "name": "Scaling",
+            "value": "Scaling"
+          }
+        ]
+      }
+    },
+    "TypeSpec.Http.OkResponse": {
+      "type": "object",
+      "description": "The request has succeeded."
+    },
+    "VCoreProvisioningState": {
+      "type": "string",
+      "description": "The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.",
+      "enum": [
+        "Succeeded"
+      ],
+      "x-ms-enum": {
+        "name": "VCoreProvisioningState",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded"
+          }
+        ]
+      }
+    },
+    "VCoreSkuTier": {
+      "type": "string",
+      "description": "The name of the Azure pricing tier to which the SKU applies.",
+      "enum": [
+        "AutoScale"
+      ],
+      "x-ms-enum": {
+        "name": "VCoreSkuTier",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "AutoScale",
+            "value": "AutoScale"
+          }
+        ]
+      }
+    },
+    "AzureEntityResource": {
+      "type": "object",
+      "title": "Entity Resource",
+      "description": "The resource model definition for an Azure Resource Manager resource with an etag.",
+      "properties": {
+        "etag": {
+          "type": "string",
+          "description": "Resource Etag.",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "x-ms-client-name": "AzureEntityResource"
+    },
+    "CheckNameAvailabilityRequest": {
+      "type": "object",
+      "description": "The check availability request body.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the resource for which availability needs to be checked."
+        },
+        "type": {
+          "type": "string",
+          "description": "The resource type."
+        }
+      }
+    },
+    "CheckNameAvailabilityResponse": {
+      "type": "object",
+      "description": "The check availability result.",
+      "properties": {
+        "nameAvailable": {
+          "type": "boolean",
+          "description": "Indicates if the resource name is available."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason why the given name is not available.",
+          "enum": [
+            "Invalid",
+            "AlreadyExists"
+          ],
+          "x-ms-enum": {
+            "name": "CheckNameAvailabilityReason",
+            "modelAsString": true
+          }
+        },
+        "message": {
+          "type": "string",
+          "description": "Detailed reason why the given name is available."
+        }
+      }
+    },
+    "ErrorAdditionalInfo": {
+      "type": "object",
+      "description": "The resource management error additional info.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The additional info type.",
+          "readOnly": true
+        },
+        "info": {
+          "type": "object",
+          "description": "The additional info.",
+          "readOnly": true
+        }
+      }
+    },
+    "ErrorDetail": {
+      "type": "object",
+      "description": "The error detail.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "The error code.",
+          "readOnly": true
+        },
+        "message": {
+          "type": "string",
+          "description": "The error message.",
+          "readOnly": true
+        },
+        "target": {
+          "type": "string",
+          "description": "The error target.",
+          "readOnly": true
+        },
+        "details": {
+          "type": "array",
+          "description": "The error details.",
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          },
+          "readOnly": true,
+          "x-ms-identifiers": [
+            "message",
+            "target"
+          ]
+        },
+        "additionalInfo": {
+          "type": "array",
+          "description": "The error additional info.",
+          "items": {
+            "$ref": "#/definitions/ErrorAdditionalInfo"
+          },
+          "readOnly": true,
+          "x-ms-identifiers": []
+        }
+      }
+    },
+    "Identity": {
+      "type": "object",
+      "description": "Identity for the resource.",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "description": "The principal ID of resource identity.",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant ID of resource.",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "description": "The identity type.",
+          "enum": [
+            "SystemAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "ResourceIdentityType",
+            "modelAsString": false
+          }
+        }
+      }
+    },
+    "KeyVaultProperties": {
+      "type": "object",
+      "properties": {
+        "keyIdentifier": {
+          "type": "string",
+          "description": "Key vault uri to access the encryption key."
+        },
+        "identity": {
+          "type": "string",
+          "description": "The client ID of the identity which will be used to access key vault."
+        }
+      }
+    },
+    "OperationStatusResult": {
+      "type": "object",
+      "description": "The current status of an async operation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Fully qualified ID for the async operation."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the async operation."
+        },
+        "status": {
+          "type": "string",
+          "description": "Operation status."
+        },
+        "percentComplete": {
+          "type": "number",
+          "description": "Percent of the operation that is complete.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The start time of the operation."
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The end time of the operation."
+        },
+        "operations": {
+          "type": "array",
+          "description": "The operations list.",
+          "items": {
+            "$ref": "#/definitions/OperationStatusResult"
+          }
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorDetail",
+          "description": "If present, details of the operation error."
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "Plan": {
+      "type": "object",
+      "description": "Plan for the resource.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A user defined name of the 3rd Party Artifact that is being procured."
+        },
+        "publisher": {
+          "type": "string",
+          "description": "The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic"
+        },
+        "product": {
+          "type": "string",
+          "description": "The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. "
+        },
+        "promotionCode": {
+          "type": "string",
+          "description": "A publisher provided promotion code as provisioned in Data Market for the said product/artifact."
+        },
+        "version": {
+          "type": "string",
+          "description": "The version of the desired product/artifact."
+        }
+      },
+      "required": [
+        "name",
+        "publisher",
+        "product"
+      ]
+    },
+    "ProxyResource": {
+      "type": "object",
+      "title": "Proxy Resource",
+      "description": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ]
+    },
+    "Resource": {
+      "type": "object",
+      "title": "Resource",
+      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the resource",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+          "readOnly": true
+        },
+        "systemData": {
+          "$ref": "#/definitions/systemData",
+          "type": "object",
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "readOnly": true
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "ResourceModelWithAllowedPropertySet": {
+      "type": "object",
+      "description": "The resource model definition containing the full set of allowed properties for a resource. Except properties bag, there cannot be a top level property outside of this set.",
+      "properties": {
+        "managedBy": {
+          "type": "string",
+          "description": "The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.",
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.",
+          "pattern": "^[-\\w\\._,\\(\\)]+$",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        },
+        "etag": {
+          "type": "string",
+          "description": "The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. ",
+          "readOnly": true
+        },
+        "identity": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identity"
+            }
+          ]
+        },
+        "sku": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Sku"
+            }
+          ]
+        },
+        "plan": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Plan"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TrackedResource"
+        }
+      ],
+      "x-ms-azure-resource": true
+    },
+    "Sku": {
+      "type": "object",
+      "description": "The resource model definition representing SKU",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU. Ex - P3. It is typically a letter+number code"
+        },
+        "tier": {
+          "$ref": "#/definitions/SkuTier"
+        },
+        "size": {
+          "type": "string",
+          "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. "
+        },
+        "family": {
+          "type": "string",
+          "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here."
+        },
+        "capacity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "SkuTier": {
+      "type": "string",
+      "description": "This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.",
+      "enum": [
+        "Free",
+        "Basic",
+        "Standard",
+        "Premium"
+      ],
+      "x-ms-enum": {
+        "name": "SkuTier",
+        "modelAsString": false
+      }
+    },
+    "TrackedResource": {
+      "type": "object",
+      "title": "Tracked Resource",
+      "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+      "properties": {
+        "tags": {
+          "type": "object",
+          "description": "Resource tags.",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ]
+    },
+    "encryptionProperties": {
+      "type": "object",
+      "description": "Configuration of key for data encryption",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Indicates whether or not the encryption is enabled for container registry.",
+          "enum": [
+            "enabled",
+            "disabled"
+          ],
+          "x-ms-enum": {
+            "name": "EncryptionStatus",
+            "modelAsString": true
+          }
+        },
+        "keyVaultProperties": {
+          "$ref": "#/definitions/KeyVaultProperties",
+          "description": "Key vault properties."
+        }
+      }
+    },
+    "locationData": {
+      "type": "object",
+      "description": "Metadata pertaining to the geographic location of the resource.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A canonical name for the geographic or physical location.",
+          "maxLength": 256
+        },
+        "city": {
+          "type": "string",
+          "description": "The city or locality where the resource is located."
+        },
+        "district": {
+          "type": "string",
+          "description": "The district, state, or province where the resource is located."
+        },
+        "countryOrRegion": {
+          "type": "string",
+          "description": "The country or region where the resource is located"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "systemData": {
+      "type": "object",
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "properties": {
+        "createdBy": {
+          "type": "string",
+          "description": "The identity that created the resource."
+        },
+        "createdByType": {
+          "type": "string",
+          "description": "The type of identity that created the resource.",
+          "enum": [
+            "User",
+            "Application",
+            "ManagedIdentity",
+            "Key"
+          ],
+          "x-ms-enum": {
+            "name": "createdByType",
+            "modelAsString": true
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource creation (UTC)."
+        },
+        "lastModifiedBy": {
+          "type": "string",
+          "description": "The identity that last modified the resource."
+        },
+        "lastModifiedByType": {
+          "type": "string",
+          "description": "The type of identity that last modified the resource.",
+          "enum": [
+            "User",
+            "Application",
+            "ManagedIdentity",
+            "Key"
+          ],
+          "x-ms-enum": {
+            "name": "createdByType",
+            "modelAsString": true
+          }
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of resource last modification (UTC)"
+        }
+      },
+      "readOnly": true
+    }
+  }
+}
